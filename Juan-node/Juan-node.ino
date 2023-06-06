@@ -253,16 +253,16 @@ void loop()
     }
 
     
-    tone(buzzer, melody[thisNote], noteDuration*0.9);
+    tone(11, melody[thisNote], noteDuration*0.9);
 
     delay(noteDuration);
     
-    noTone(buzzer);
+    noTone(11);
     } 
   }
-  Serial.wite(RemoteXY.principale_x);
-  Serial.wite(RemoteXY.principale_y);
-  Serial.wite(RemoteXY.rotire_x);
+  Serial.write(RemoteXY.principale_x);
+  Serial.write(RemoteXY.principale_y);
+  Serial.write(RemoteXY.rotire_x);
 
 
 
