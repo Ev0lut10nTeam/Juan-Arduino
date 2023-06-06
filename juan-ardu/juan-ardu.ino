@@ -1,6 +1,6 @@
 int8_t v[3];   // for incoming serial data
 int i;
-
+int puteri[4];
 /*
 
 v0=principal ex
@@ -45,7 +45,13 @@ void loop(){
     Serial.println(v[1]);
     Serial.print("v2 = ");
     Serial.println(v[2]);
-  
+    putere[0]=v[0]+v[1]+v[2];
+    putere[1]=v[0]-v[1]-v[2];
+    putere[2]=v[0]-v[1]+v[2];
+    putere[3]=v[0]+v[1]-v[2];
+
+
+
 
 
 
