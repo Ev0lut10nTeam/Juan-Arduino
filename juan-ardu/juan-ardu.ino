@@ -49,6 +49,38 @@ void loop(){
     putere[1]=v[0]-v[1]-v[2];
     putere[2]=v[0]-v[1]+v[2];
     putere[3]=v[0]+v[1]-v[2];
+    if(putere[0]>0){
+      analogWrite(enst , putere[0]);
+      digitalWrite(in1st ,HIGH);
+    }
+    else if(putere[0]<0){
+      analogWrite(enst , putere[0]);
+      digitalWrite(in2st ,HIGH);
+    }
+    else{
+      analogWrite(enst , putere[0]);
+      digitalWrite(in1st ,LOW);
+      digitalWrite(in2st ,LOW);
+    }
+
+
+
+    if(putere[1]>0){
+      analogWrite(endr , putere[1]);
+      digitalWrite(in1dr ,HIGH);
+    }
+    else if(putere[1]<0){
+      analogWrite(endr , putere[1]);
+      digitalWrite(in2dr ,HIGH);
+    }
+    else{
+      analogWrite(endr , putere[1]);
+      digitalWrite(in1dr ,LOW);
+      digitalWrite(in2dr ,LOW);
+    }
+
+
+    
 
 
 
