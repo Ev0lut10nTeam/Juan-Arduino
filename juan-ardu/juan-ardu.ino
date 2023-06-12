@@ -115,8 +115,6 @@ v2=rotire x
 // change this to make the song slower or faster
 int tempo = 120;
 
-// change this to whichever pin you want to use
-int buzzer = 11;
 
 // notes of the moledy followed by the duration.
 // a 4 means a quarter note, 8 an eighteenth , 16 sixteenth, so on
@@ -242,18 +240,9 @@ void loop(){
     
     noTone(8);
     
-         }   }
+         } 
+    }
 
 
-    
-
-
-
-
-
-
-
-
-
-
+  
 }
