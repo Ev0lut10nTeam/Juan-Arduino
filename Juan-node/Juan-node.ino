@@ -264,7 +264,6 @@ void loop()
 
 
   if(RemoteXY.claxon==1){
-    if(v[3]==1){
       for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
 
     divider = melody[thisNote + 1];
@@ -282,7 +281,7 @@ void loop()
     
     noTone(8);
     
-    } 
+    
   }
 
 
