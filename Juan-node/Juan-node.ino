@@ -275,11 +275,11 @@ void loop()
     }
 
     
-    tone(8, melody[thisNote], noteDuration*0.9);
+    tone(7, melody[thisNote], noteDuration*0.9);
 
     delay(noteDuration);
     
-    noTone(8);
+    noTone(7);
     
     
   }
