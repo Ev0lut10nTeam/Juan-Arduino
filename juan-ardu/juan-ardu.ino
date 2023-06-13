@@ -205,7 +205,9 @@ void loop(){
     for(i=0;i<4;i++){
       maxim=max(maxim,putere[i]);
     }
+
     if(maxim>1){
+    //drf
     if(putere[0]>0){
       analogWrite(enst , putere[0]/maxim);
       digitalWrite(in1st ,HIGH);
@@ -221,7 +223,7 @@ void loop(){
     }
 
 
-
+    //stf
     if(putere[1]>0){
       analogWrite(endr , putere[1]/maxim);
       digitalWrite(in1dr ,HIGH);
@@ -235,11 +237,7 @@ void loop(){
       digitalWrite(in1dr ,LOW);
       digitalWrite(in2dr ,LOW);
     }
-
-
-
-
-
+    //stsp
     if(putere[2]>0){
       analogWrite(enstsp , putere[2]/maxim);
       digitalWrite(in1stsp ,HIGH);
@@ -253,8 +251,7 @@ void loop(){
       digitalWrite(in1stsp ,LOW);
       digitalWrite(in2stsp ,LOW);
     }
-
-
+    //drsp
     if(putere[3]>0){
       analogWrite(endrsp , putere[3]/maxim);
       digitalWrite(in1drsp ,HIGH);
@@ -268,11 +265,6 @@ void loop(){
       digitalWrite(in1drsp ,LOW);
       digitalWrite(in2drsp ,LOW);
     }
-
-
-
-
-
 
 
     }
