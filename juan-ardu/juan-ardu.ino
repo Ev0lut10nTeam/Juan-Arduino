@@ -1,5 +1,5 @@
 int8_t v[3];   // for incoming serial data
-int i;
+int i,maxim=0;
 int putere[4];
 /*
 
@@ -16,6 +16,15 @@ v2=rotire x
 #define in2st 5
 #define in1dr 6
 #define in2dr 7
+
+
+//spate
+#define enstsp 8
+#define endrsp 9
+#define in1stsp 10
+#define in2stsp 11
+#define in1drsp 12
+#define in2drsp 13
 
 
 
@@ -193,16 +202,20 @@ void loop(){
     putere[1]=v[0]-v[1]-v[2];
     putere[2]=v[0]-v[1]+v[2];
     putere[3]=v[0]+v[1]-v[2];
+    for(i=0;i<4;i++){
+      maxim=max(maxim,putere[i]);
+    }
+    if(maxim>1){
     if(putere[0]>0){
-      analogWrite(enst , putere[0]);
+      analogWrite(enst , putere[0]/maxim);
       digitalWrite(in1st ,HIGH);
     }
     else if(putere[0]<0){
-      analogWrite(enst , putere[0]);
+      analogWrite(enst , putere[0]/maxim);
       digitalWrite(in2st ,HIGH);
     }
     else{
-      analogWrite(enst , putere[0]);
+      analogWrite(enst , putere[0]/maxim);
       digitalWrite(in1st ,LOW);
       digitalWrite(in2st ,LOW);
     }
@@ -210,17 +223,58 @@ void loop(){
 
 
     if(putere[1]>0){
-      analogWrite(endr , putere[1]);
+      analogWrite(endr , putere[1]/maxim);
       digitalWrite(in1dr ,HIGH);
     }
     else if(putere[1]<0){
-      analogWrite(endr , putere[1]);
+      analogWrite(endr , putere[1]/maxim);
       digitalWrite(in2dr ,HIGH);
     }
     else{
-      analogWrite(endr , putere[1]);
+      analogWrite(endr , putere[1]/maxim);
       digitalWrite(in1dr ,LOW);
       digitalWrite(in2dr ,LOW);
+    }
+
+
+
+
+
+    if(putere[2]>0){
+      analogWrite(enstsp , putere[2]/maxim);
+      digitalWrite(in1stsp ,HIGH);
+    }
+    else if(putere[2]<0){
+      analogWrite(enstsp , putere[2]/maxim);
+      digitalWrite(in2stsp ,HIGH);
+    }
+    else{
+      analogWrite(endr , putere[2]/maxim);
+      digitalWrite(in1stsp ,LOW);
+      digitalWrite(in2stsp ,LOW);
+    }
+
+
+    if(putere[3]>0){
+      analogWrite(endrsp , putere[3]/maxim);
+      digitalWrite(in1drsp ,HIGH);
+    }
+    else if(putere[3]<0){
+      analogWrite(endrsp , putere[3]/maxim);
+      digitalWrite(in2drsp ,HIGH);
+    }
+    else{
+      analogWrite(endr , putere[3]/maxim);
+      digitalWrite(in1drsp ,LOW);
+      digitalWrite(in2drsp ,LOW);
+    }
+
+
+
+
+
+
+
     }
     if(v[3]==1){
       for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
